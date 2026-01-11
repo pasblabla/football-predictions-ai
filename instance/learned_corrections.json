@@ -1,0 +1,82 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-01-10T18:00:02.344163",
+  "global": {
+    "home_advantage_boost": 0.0,
+    "away_penalty": 0.0,
+    "draw_boost": 5.0,
+    "confidence_threshold_home": 58,
+    "confidence_threshold_away": 50,
+    "confidence_threshold_draw": 27
+  },
+  "by_league": {
+    "Serie A": {
+      "draw_boost": 0,
+      "home_boost": 0,
+      "away_boost": 0,
+      "accuracy": 38.3
+    },
+    "Eredivisie": {
+      "draw_boost": 0,
+      "home_boost": 0,
+      "away_boost": 0,
+      "accuracy": 46.8
+    },
+    "Premier League": {
+      "draw_boost": 0,
+      "home_boost": 0,
+      "away_boost": 0,
+      "accuracy": 44.9
+    },
+    "Bundesliga": {
+      "draw_boost": 0,
+      "home_boost": 0,
+      "away_boost": 0,
+      "accuracy": 49.1
+    },
+    "Championship": {
+      "draw_boost": 0,
+      "home_boost": 0,
+      "away_boost": 0,
+      "accuracy": 33.5
+    },
+    "LaLiga": {
+      "draw_boost": 0,
+      "home_boost": 0,
+      "away_boost": 0,
+      "accuracy": 44.4
+    },
+    "Primeira Liga": {
+      "draw_boost": 0,
+      "home_boost": 0,
+      "away_boost": 0,
+      "accuracy": 37.5
+    },
+    "Ligue 1": {
+      "draw_boost": 0,
+      "home_boost": 0,
+      "away_boost": 0,
+      "accuracy": 45.0
+    }
+  },
+  "by_team_strength_diff": {
+    "large_diff": {
+      "home_boost": 0,
+      "away_boost": 0
+    },
+    "medium_diff": {
+      "home_boost": 0,
+      "away_boost": 0
+    },
+    "small_diff": {
+      "draw_boost": 0
+    }
+  },
+  "patterns": {
+    "high_scoring_leagues": [],
+    "low_scoring_leagues": [],
+    "draw_prone_leagues": [],
+    "home_dominant_leagues": [],
+    "upset_prone_leagues": []
+  }
+}

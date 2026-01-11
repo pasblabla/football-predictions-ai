@@ -1,0 +1,50 @@
+{
+  "Casemiro": {
+    "team": "Manchester United FC",
+    "avg_fouls": 2.8,
+    "yellow_cards": 8,
+    "red_cards": 1
+  },
+  "Rodri": {
+    "team": "Manchester City FC",
+    "avg_fouls": 2.2,
+    "yellow_cards": 6,
+    "red_cards": 0
+  },
+  "Bruno Guimar\u00e3es": {
+    "team": "Newcastle United FC",
+    "avg_fouls": 2.0,
+    "yellow_cards": 5,
+    "red_cards": 0
+  },
+  "Declan Rice": {
+    "team": "Arsenal FC",
+    "avg_fouls": 1.8,
+    "yellow_cards": 4,
+    "red_cards": 0
+  },
+  "Aur\u00e9lien Tchouam\u00e9ni": {
+    "team": "Real Madrid CF",
+    "avg_fouls": 2.5,
+    "yellow_cards": 7,
+    "red_cards": 0
+  },
+  "Gavi": {
+    "team": "FC Barcelona",
+    "avg_fouls": 2.3,
+    "yellow_cards": 9,
+    "red_cards": 1
+  },
+  "Nicol\u00f2 Barella": {
+    "team": "FC Internazionale Milano",
+    "avg_fouls": 2.1,
+    "yellow_cards": 6,
+    "red_cards": 0
+  },
+  "Sandro Tonali": {
+    "team": "Newcastle United FC",
+    "avg_fouls": 2.4,
+    "yellow_cards": 7,
+    "red_cards": 0
+  }
+}

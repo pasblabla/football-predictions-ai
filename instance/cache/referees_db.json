@@ -1,0 +1,102 @@
+{
+  "Michael Oliver": {
+    "country": "England",
+    "avg_yellow_cards": 4.2,
+    "avg_red_cards": 0.3,
+    "avg_penalties": 0.35,
+    "avg_fouls": 22.5,
+    "strictness": "strict",
+    "home_bias": 0.52,
+    "matches_officiated": 245
+  },
+  "Anthony Taylor": {
+    "country": "England",
+    "avg_yellow_cards": 3.8,
+    "avg_red_cards": 0.25,
+    "avg_penalties": 0.28,
+    "avg_fouls": 24.1,
+    "strictness": "moderate",
+    "home_bias": 0.48,
+    "matches_officiated": 312
+  },
+  "Paul Tierney": {
+    "country": "England",
+    "avg_yellow_cards": 4.5,
+    "avg_red_cards": 0.35,
+    "avg_penalties": 0.32,
+    "avg_fouls": 23.8,
+    "strictness": "strict",
+    "home_bias": 0.5,
+    "matches_officiated": 198
+  },
+  "Felix Zwayer": {
+    "country": "Germany",
+    "avg_yellow_cards": 3.9,
+    "avg_red_cards": 0.22,
+    "avg_penalties": 0.3,
+    "avg_fouls": 21.5,
+    "strictness": "moderate",
+    "home_bias": 0.51,
+    "matches_officiated": 267
+  },
+  "Daniel Siebert": {
+    "country": "Germany",
+    "avg_yellow_cards": 4.1,
+    "avg_red_cards": 0.28,
+    "avg_penalties": 0.33,
+    "avg_fouls": 22.0,
+    "strictness": "strict",
+    "home_bias": 0.49,
+    "matches_officiated": 189
+  },
+  "Jes\u00fas Gil Manzano": {
+    "country": "Spain",
+    "avg_yellow_cards": 5.2,
+    "avg_red_cards": 0.38,
+    "avg_penalties": 0.35,
+    "avg_fouls": 26.5,
+    "strictness": "strict",
+    "home_bias": 0.53,
+    "matches_officiated": 234
+  },
+  "Mateu Lahoz": {
+    "country": "Spain",
+    "avg_yellow_cards": 5.8,
+    "avg_red_cards": 0.42,
+    "avg_penalties": 0.4,
+    "avg_fouls": 28.2,
+    "strictness": "very_strict",
+    "home_bias": 0.51,
+    "matches_officiated": 298
+  },
+  "Daniele Orsato": {
+    "country": "Italy",
+    "avg_yellow_cards": 4.8,
+    "avg_red_cards": 0.32,
+    "avg_penalties": 0.38,
+    "avg_fouls": 25.0,
+    "strictness": "strict",
+    "home_bias": 0.52,
+    "matches_officiated": 276
+  },
+  "Cl\u00e9ment Turpin": {
+    "country": "France",
+    "avg_yellow_cards": 4.0,
+    "avg_red_cards": 0.28,
+    "avg_penalties": 0.32,
+    "avg_fouls": 23.5,
+    "strictness": "moderate",
+    "home_bias": 0.5,
+    "matches_officiated": 312
+  },
+  "Fran\u00e7ois Letexier": {
+    "country": "France",
+    "avg_yellow_cards": 3.7,
+    "avg_red_cards": 0.22,
+    "avg_penalties": 0.28,
+    "avg_fouls": 22.8,
+    "strictness": "lenient",
+    "home_bias": 0.49,
+    "matches_officiated": 198
+  }
+}

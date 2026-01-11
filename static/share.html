@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prédiction Football IA</title>
+    
+    <!-- Meta tags pour le partage social -->
+    <meta property="og:title" content="Prédiction Football IA">
+    <meta property="og:description" content="Découvrez cette prédiction de match générée par l'IA">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .prediction-badge {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .prob-bar {
+            transition: width 1s ease-out;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4">
+    <div class="w-full max-w-lg">
+        <!-- Logo et titre -->
+        <div class="text-center mb-6">
+            <div class="text-5xl mb-2">⚽</div>
+            <h1 class="text-2xl font-bold text-white">Pronostic Football IA</h1>
+            <p class="text-gray-300 text-sm">Prédiction générée par Intelligence Artificielle</p>
+        </div>
+        
+        <!-- Carte de prédiction -->
+        <div id="prediction-card" class="card rounded-2xl shadow-2xl overflow-hidden">
+            <!-- Chargement -->
+            <div id="loading" class="p-8 text-center">
+                <div class="animate-spin text-4xl mb-4">⚽</div>
+                <p class="text-gray-600">Chargement de la prédiction...</p>
+            </div>
+            
+            <!-- Contenu de la prédiction -->
+            <div id="prediction-content" class="hidden">
+                <!-- En-tête avec la ligue -->
+                <div id="league-header" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3">
+                    <div class="flex justify-between items-center">
+                        <span id="league-name" class="font-semibold">Premier League</span>
+                        <span id="match-date" class="text-sm opacity-90">26/12/2024 15:00</span>
+                    </div>
+                </div>
+                
+                <!-- Équipes et score prédit -->
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="text-center flex-1">
+                            <div class="text-3xl mb-2">🏠</div>
+                            <h2 id="home-team" class="font-bold text-lg text-gray-800">Arsenal FC</h2>
+                        </div>
+                        
+                        <div class="text-center px-4">
+                            <div class="prediction-badge bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl px-6 py-3 shadow-lg">
+                                <div class="text-xs uppercase tracking-wider opacity-90">Score Prédit</div>
+                                <div id="predicted-score" class="text-3xl font-bold">2 - 1</div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center flex-1">
+                            <div class="text-3xl mb-2">✈️</div>
+                            <h2 id="away-team" class="font-bold text-lg text-gray-800">Brighton</h2>
+                        </div>
+                    </div>
+                    
+                    <!-- Prédiction principale -->
+                    <div id="main-prediction" class="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-xl p-4 mb-6 text-center">
+                        <div class="text-sm text-white/90 uppercase tracking-wider">Prédiction IA</div>
+                        <div id="prediction-result" class="text-2xl font-bold text-white">Victoire Domicile</div>
+                        <div id="prediction-confidence" class="text-white/90 text-sm mt-1">Confiance: 85%</div>
+                    </div>
+                    
+                    <!-- Probabilités -->
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center">
+                            <span class="w-24 text-sm text-gray-600">Victoire 1</span>
+                            <div class="flex-1 bg-gray-200 rounded-full h-4 mx-2">
+                                <div id="home-prob-bar" class="prob-bar bg-blue-500 h-4 rounded-full" style="width: 60%"></div>
+                            </div>
+                            <span id="home-prob" class="w-12 text-sm font-bold text-gray-700">60%</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-24 text-sm text-gray-600">Match Nul</span>
+                            <div class="flex-1 bg-gray-200 rounded-full h-4 mx-2">
+                                <div id="draw-prob-bar" class="prob-bar bg-gray-500 h-4 rounded-full" style="width: 25%"></div>
+                            </div>
+                            <span id="draw-prob" class="w-12 text-sm font-bold text-gray-700">25%</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-24 text-sm text-gray-600">Victoire 2</span>
+                            <div class="flex-1 bg-gray-200 rounded-full h-4 mx-2">
+                                <div id="away-prob-bar" class="prob-bar bg-red-500 h-4 rounded-full" style="width: 15%"></div>
+                            </div>
+                            <span id="away-prob" class="w-12 text-sm font-bold text-gray-700">15%</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Meilleur pari -->
+                    <div id="best-bet-section" class="bg-green-50 border border-green-200 rounded-xl p-4 mb-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="text-xs text-green-600 uppercase tracking-wider">💰 Meilleur Pari</div>
+                                <div id="best-bet" class="text-xl font-bold text-green-700">1X</div>
+                                <div id="best-bet-label" class="text-sm text-green-600">Domicile ou Nul</div>
+                            </div>
+                            <div id="best-bet-prob" class="text-3xl font-bold text-green-600">85%</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Résultat réel (si le match est terminé) -->
+                    <div id="actual-result" class="hidden bg-gray-100 rounded-xl p-4 mb-4">
+                        <div class="text-center">
+                            <div class="text-xs text-gray-500 uppercase tracking-wider">Résultat Réel</div>
+                            <div id="actual-score" class="text-2xl font-bold text-gray-800">2 - 1</div>
+                            <div id="prediction-status" class="mt-2 text-sm font-semibold"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer -->
+                <div class="bg-gray-100 px-6 py-4 text-center">
+                    <p class="text-xs text-gray-500">🤖 Généré par Football IA v7.4</p>
+                </div>
+            </div>
+            
+            <!-- Erreur -->
+            <div id="error-content" class="hidden p-8 text-center">
+                <div class="text-5xl mb-4">😕</div>
+                <h2 class="text-xl font-bold text-gray-800 mb-2">Prédiction non trouvée</h2>
+                <p class="text-gray-600 mb-4">Cette prédiction n'existe pas ou a été supprimée.</p>
+                <a href="/" class="inline-block bg-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-purple-700 transition">
+                    Voir les prédictions disponibles
+                </a>
+            </div>
+        </div>
+        
+        <!-- Bouton de partage -->
+        <div class="mt-6 text-center">
+            <button onclick="shareThisPrediction()" class="bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-full font-semibold transition">
+                📤 Partager cette prédiction
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        // Récupérer l'ID du match depuis l'URL
+        const pathParts = window.location.pathname.split('/');
+        const matchId = pathParts[pathParts.length - 1];
+        
+        // Données de la prédiction (pour le partage)
+        let predictionData = null;
+        
+        // Charger la prédiction
+        async function loadPrediction() {
+            try {
+                const response = await fetch(`/api/share/${matchId}`);
+                
+                if (!response.ok) {
+                    showError();
+                    return;
+                }
+                
+                const data = await response.json();
+                
+                if (data.error) {
+                    showError();
+                    return;
+                }
+                
+                predictionData = data;
+                displayPrediction(data);
+                
+            } catch (error) {
+                console.error('Erreur:', error);
+                showError();
+            }
+        }
+        
+        function displayPrediction(data) {
+            const { match, prediction } = data;
+            
+            // Masquer le chargement et afficher le contenu
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('prediction-content').classList.remove('hidden');
+            
+            // Informations du match
+            document.getElementById('league-name').textContent = match.league;
+            document.getElementById('match-date').textContent = match.date;
+            document.getElementById('home-team').textContent = match.home_team;
+            document.getElementById('away-team').textContent = match.away_team;
+            
+            // Mettre à jour le titre de la page
+            document.title = `${match.home_team} vs ${match.away_team} - Prédiction Football IA`;
+            
+            if (prediction) {
+                // Score prédit
+                const homeScore = prediction.predicted_score_home || 0;
+                const awayScore = prediction.predicted_score_away || 0;
+                document.getElementById('predicted-score').textContent = `${homeScore} - ${awayScore}`;
+                
+                // Prédiction principale
+                let resultText = 'Match Nul';
+                if (prediction.predicted_winner === '1' || prediction.predicted_winner === 'HOME') resultText = `Victoire ${match.home_team}`;
+                else if (prediction.predicted_winner === '2' || prediction.predicted_winner === 'AWAY') resultText = `Victoire ${match.away_team}`;
+                document.getElementById('prediction-result').textContent = resultText;
+                
+                // Confiance - utiliser confidence_level (0-1) ou confidence (texte)
+                let confidenceText = 'Élevée';
+                if (prediction.confidence_level) {
+                    const confLevel = Math.round(prediction.confidence_level * 100);
+                    confidenceText = `${confLevel}%`;
+                } else if (prediction.confidence) {
+                    confidenceText = prediction.confidence;
+                }
+                document.getElementById('prediction-confidence').textContent = `Confiance: ${confidenceText}`;
+                
+                // Probabilités
+                const homeProb = Math.round((prediction.prob_home_win || 0.33) * 100);
+                const drawProb = Math.round((prediction.prob_draw || 0.33) * 100);
+                const awayProb = Math.round((prediction.prob_away_win || 0.33) * 100);
+                
+                document.getElementById('home-prob').textContent = `${homeProb}%`;
+                document.getElementById('draw-prob').textContent = `${drawProb}%`;
+                document.getElementById('away-prob').textContent = `${awayProb}%`;
+                
+                document.getElementById('home-prob-bar').style.width = `${homeProb}%`;
+                document.getElementById('draw-prob-bar').style.width = `${drawProb}%`;
+                document.getElementById('away-prob-bar').style.width = `${awayProb}%`;
+                
+                // Meilleur pari
+                if (prediction.best_bet) {
+                    const betLabels = {
+                        '1': 'Victoire domicile',
+                        'X': 'Match nul',
+                        '2': 'Victoire extérieur',
+                        '1X': 'Domicile ou nul',
+                        'X2': 'Nul ou extérieur',
+                        '12': 'Pas de nul',
+                        'BTTS': 'Les deux équipes marquent',
+                        'Over 2.5': 'Plus de 2.5 buts',
+                        'Under 2.5': 'Moins de 2.5 buts'
+                    };
+                    document.getElementById('best-bet').textContent = prediction.best_bet;
+                    document.getElementById('best-bet-label').textContent = betLabels[prediction.best_bet] || prediction.best_bet;
+                    
+                    // Calculer la probabilité du meilleur pari
+                    let betProb = 0;
+                    if (prediction.best_bet === '1') betProb = homeProb;
+                    else if (prediction.best_bet === 'X') betProb = drawProb;
+                    else if (prediction.best_bet === '2') betProb = awayProb;
+                    else if (prediction.best_bet === '1X') betProb = homeProb + drawProb;
+                    else if (prediction.best_bet === 'X2') betProb = drawProb + awayProb;
+                    else if (prediction.best_bet === '12') betProb = homeProb + awayProb;
+                    else betProb = confidence;
+                    
+                    document.getElementById('best-bet-prob').textContent = `${Math.round(betProb)}%`;
+                } else {
+                    document.getElementById('best-bet-section').classList.add('hidden');
+                }
+            } else {
+                // Pas de prédiction disponible
+                document.getElementById('predicted-score').textContent = '? - ?';
+                document.getElementById('prediction-result').textContent = 'Pas de prédiction';
+                document.getElementById('prediction-confidence').textContent = '';
+                document.getElementById('best-bet-section').classList.add('hidden');
+            }
+            
+            // Résultat réel si le match est terminé
+            if (match.home_score !== null && match.away_score !== null) {
+                document.getElementById('actual-result').classList.remove('hidden');
+                document.getElementById('actual-score').textContent = `${match.home_score} - ${match.away_score}`;
+                
+                // Vérifier si la prédiction était correcte
+                if (prediction) {
+                    let actualResult = 'X';
+                    if (match.home_score > match.away_score) actualResult = '1';
+                    else if (match.away_score > match.home_score) actualResult = '2';
+                    
+                    const statusEl = document.getElementById('prediction-status');
+                    if (prediction.predicted_winner === actualResult) {
+                        statusEl.textContent = '✅ Prédiction correcte !';
+                        statusEl.className = 'mt-2 text-sm font-semibold text-green-600';
+                    } else {
+                        statusEl.textContent = '❌ Prédiction incorrecte';
+                        statusEl.className = 'mt-2 text-sm font-semibold text-red-600';
+                    }
+                }
+            }
+        }
+        
+        function showError() {
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('error-content').classList.remove('hidden');
+        }
+        
+        function shareThisPrediction() {
+            const url = window.location.href;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: document.title,
+                    text: predictionData ? `${predictionData.match.home_team} vs ${predictionData.match.away_team} - Prédiction Football IA` : 'Prédiction Football IA',
+                    url: url
+                });
+            } else {
+                // Copier le lien
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('Lien copié dans le presse-papiers !');
+                });
+            }
+        }
+        
+        // Charger la prédiction au démarrage
+        loadPrediction();
+    </script>
+</body>
+</html>

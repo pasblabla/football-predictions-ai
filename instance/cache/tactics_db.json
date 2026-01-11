@@ -1,0 +1,132 @@
+{
+  "Manchester City FC": {
+    "formation": "4-3-3",
+    "style": "possession",
+    "attacking_intensity": 85,
+    "defensive_intensity": 70,
+    "pressing": "high",
+    "avg_possession": 65,
+    "avg_shots": 18.5,
+    "avg_shots_on_target": 7.2
+  },
+  "Liverpool FC": {
+    "formation": "4-3-3",
+    "style": "counter_attack",
+    "attacking_intensity": 88,
+    "defensive_intensity": 75,
+    "pressing": "very_high",
+    "avg_possession": 58,
+    "avg_shots": 16.8,
+    "avg_shots_on_target": 6.5
+  },
+  "Arsenal FC": {
+    "formation": "4-3-3",
+    "style": "possession",
+    "attacking_intensity": 82,
+    "defensive_intensity": 72,
+    "pressing": "high",
+    "avg_possession": 60,
+    "avg_shots": 15.5,
+    "avg_shots_on_target": 5.8
+  },
+  "Chelsea FC": {
+    "formation": "4-2-3-1",
+    "style": "balanced",
+    "attacking_intensity": 75,
+    "defensive_intensity": 78,
+    "pressing": "medium",
+    "avg_possession": 55,
+    "avg_shots": 14.2,
+    "avg_shots_on_target": 5.0
+  },
+  "FC Bayern M\u00fcnchen": {
+    "formation": "4-2-3-1",
+    "style": "possession",
+    "attacking_intensity": 90,
+    "defensive_intensity": 68,
+    "pressing": "very_high",
+    "avg_possession": 62,
+    "avg_shots": 19.5,
+    "avg_shots_on_target": 7.8
+  },
+  "Borussia Dortmund": {
+    "formation": "4-3-3",
+    "style": "counter_attack",
+    "attacking_intensity": 85,
+    "defensive_intensity": 65,
+    "pressing": "high",
+    "avg_possession": 52,
+    "avg_shots": 15.0,
+    "avg_shots_on_target": 5.5
+  },
+  "Real Madrid CF": {
+    "formation": "4-3-3",
+    "style": "balanced",
+    "attacking_intensity": 85,
+    "defensive_intensity": 75,
+    "pressing": "medium",
+    "avg_possession": 58,
+    "avg_shots": 16.0,
+    "avg_shots_on_target": 6.2
+  },
+  "FC Barcelona": {
+    "formation": "4-3-3",
+    "style": "possession",
+    "attacking_intensity": 88,
+    "defensive_intensity": 65,
+    "pressing": "high",
+    "avg_possession": 65,
+    "avg_shots": 17.5,
+    "avg_shots_on_target": 6.8
+  },
+  "Club Atl\u00e9tico de Madrid": {
+    "formation": "3-5-2",
+    "style": "defensive",
+    "attacking_intensity": 65,
+    "defensive_intensity": 90,
+    "pressing": "low",
+    "avg_possession": 45,
+    "avg_shots": 11.0,
+    "avg_shots_on_target": 4.2
+  },
+  "FC Internazionale Milano": {
+    "formation": "3-5-2",
+    "style": "balanced",
+    "attacking_intensity": 78,
+    "defensive_intensity": 82,
+    "pressing": "medium",
+    "avg_possession": 52,
+    "avg_shots": 14.5,
+    "avg_shots_on_target": 5.5
+  },
+  "AC Milan": {
+    "formation": "4-2-3-1",
+    "style": "counter_attack",
+    "attacking_intensity": 80,
+    "defensive_intensity": 75,
+    "pressing": "high",
+    "avg_possession": 50,
+    "avg_shots": 13.8,
+    "avg_shots_on_target": 5.0
+  },
+  "Juventus FC": {
+    "formation": "3-5-2",
+    "style": "defensive",
+    "attacking_intensity": 70,
+    "defensive_intensity": 85,
+    "pressing": "medium",
+    "avg_possession": 55,
+    "avg_shots": 12.5,
+    "avg_shots_on_target": 4.8
+  },
+  "Paris Saint-Germain FC": {
+    "formation": "4-3-3",
+    "style": "possession",
+    "attacking_intensity": 90,
+    "defensive_intensity": 65,
+    "pressing": "high",
+    "avg_possession": 62,
+    "avg_shots": 18.0,
+    "avg_shots_on_target": 7.0
+  }
+}

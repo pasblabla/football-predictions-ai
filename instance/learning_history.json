@@ -1,0 +1,27 @@
+{
+  "sessions": [
+    {
+      "date": "2026-01-10T18:00:02.344572",
+      "matches_analyzed": 1056,
+      "accuracy_before": 41.6,
+      "corrections_applied": [
+        {
+          "type": "draw_detection",
+          "reason": "230 matchs nuls manqu\u00e9s (21.8%)",
+          "action": "draw_boost: 0.0 \u2192 5.0, threshold: 30 \u2192 27"
+        },
+        {
+          "type": "away_prediction",
+          "reason": "Pr\u00e9cision ext\u00e9rieur faible: 34.6%",
+          "action": "confidence_threshold_away: 45 \u2192 50"
+        },
+        {
+          "type": "home_prediction",
+          "reason": "Pr\u00e9cision domicile faible: 48.0%",
+          "action": "confidence_threshold_home: 55 \u2192 58"
+        }
+      ]
+    }
+  ],
+  "total_improvements": 0
+}

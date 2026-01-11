@@ -1,0 +1,15 @@
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+Flask-CORS
+requests
+python-dotenv
+gunicorn
+Flask-APScheduler>=1.13.1
+pytz>=2024.1
+psycopg2-binary
+PyMySQL
+beautifulsoup4
+numpy
+scikit-learn
+xgboost
